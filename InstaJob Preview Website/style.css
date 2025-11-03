@@ -1,0 +1,237 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+    background-attachment: fixed;
+    overflow-x: hidden;
+    position: relative;
+    margin: 0;
+    padding: 0;
+}
+
+/* Animated background effect */
+body::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background:
+        radial-gradient(circle at 20% 50%, rgba(59, 141, 173, 0.3) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(118, 75, 162, 0.3) 0%, transparent 50%),
+        radial-gradient(circle at 40% 20%, rgba(102, 126, 234, 0.3) 0%, transparent 50%);
+    animation: rotate 30s linear infinite;
+}
+
+@keyframes rotate {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.container {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    max-width: 100vw;
+    padding: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+.content {
+    max-width: 600px;
+    width: 100%;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(20px);
+    padding: 4rem 3rem;
+    border-radius: 30px;
+    box-shadow:
+        0 20px 60px rgba(0, 0, 0, 0.3),
+        0 0 0 1px rgba(255, 255, 255, 0.5) inset;
+    animation: fadeInUp 1s ease-out;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.logo-container {
+    margin-bottom: 2rem;
+    animation: fadeIn 1.2s ease-out 0.2s both;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo {
+    filter: drop-shadow(0 10px 20px rgba(59, 141, 173, 0.3));
+    transition: transform 0.3s ease;
+    display: block;
+    margin: 0 auto;
+}
+
+.logo:hover {
+    transform: scale(1.05);
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.brand-name {
+    font-size: 3.5rem;
+    font-weight: 700;
+    color: #2d3748;
+    margin-bottom: 1.5rem;
+    letter-spacing: -0.02em;
+    animation: fadeIn 1.2s ease-out 0.4s both;
+}
+
+.tagline {
+    font-size: 1.25rem;
+    font-weight: 400;
+    color: #4a5568;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+    animation: fadeIn 1.2s ease-out 0.6s both;
+}
+
+.coming-soon {
+    font-size: 1.5rem;
+    font-weight: 600;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 2.5rem;
+    animation: fadeIn 1.2s ease-out 0.8s both;
+}
+
+.email {
+    display: inline-block;
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: #3B8DAD;
+    text-decoration: none;
+    padding: 0.75rem 2rem;
+    border: 2px solid #3B8DAD;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+    animation: fadeIn 1.2s ease-out 1s both;
+}
+
+.email:hover {
+    background: #3B8DAD;
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(59, 141, 173, 0.3);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .content {
+        padding: 3rem 2rem;
+        border-radius: 20px;
+    }
+
+    .logo {
+        width: 100px;
+        height: 100px;
+    }
+
+    .brand-name {
+        font-size: 2.5rem;
+    }
+
+    .tagline {
+        font-size: 1.1rem;
+    }
+
+    .coming-soon {
+        font-size: 1.25rem;
+    }
+
+    .email {
+        font-size: 1rem;
+        padding: 0.65rem 1.5rem;
+    }
+}
+
+.footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    text-align: center;
+    padding: 1rem;
+    font-size: 0.875rem;
+    color: rgba(255, 255, 255, 0.8);
+    z-index: 2;
+    animation: fadeIn 1.2s ease-out 1.2s both;
+}
+
+.footer p {
+    margin: 0;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+@media (max-width: 480px) {
+    .content {
+        padding: 2.5rem 1.5rem;
+    }
+
+    .logo {
+        width: 80px;
+        height: 80px;
+    }
+
+    .brand-name {
+        font-size: 2rem;
+    }
+
+    .tagline {
+        font-size: 1rem;
+    }
+
+    .coming-soon {
+        font-size: 1.1rem;
+    }
+
+    .footer {
+        font-size: 0.75rem;
+        padding: 0.75rem;
+    }
+}
